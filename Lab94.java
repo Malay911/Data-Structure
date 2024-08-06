@@ -18,9 +18,6 @@ public class Lab94 {
                 if(arr[min]>arr[j]){
                     min=j;
                 }
-                // if(arr[i]>arr[j]){
-                //     min=j;
-                // }
             }
             int temp=arr[i];
             arr[i]=arr[min];
