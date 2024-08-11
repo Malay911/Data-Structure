@@ -1,4 +1,6 @@
-import java.util.Scanner;
+//Menu driven program to implement following operations on the circular linked list
+
+import java.util.*;
 
 class CircularLinkedListMethod {
     class Node {
@@ -96,50 +98,45 @@ class CircularLinkedListMethod {
 
 public class Lab71 {
     public static void main(String[] args) {
-        CircularLinkedListMethod cll = new CircularLinkedListMethod();
-        Scanner sc = new Scanner(System.in);
-        int choice, data, position;
-        do {
-            System.out.println("\nMenu:");
-            System.out.println("1. Insert at front");
-            System.out.println("2. Insert at end");
-            System.out.println("3. Delete from position");
-            System.out.println("4. Display all nodes");
+        Scanner sc=new Scanner(System.in);
+        CircularLinkedListMethod l1=new CircularLinkedListMethod();
+        while (true) {
+            System.out.println("1. Insert at first");
+            System.out.println("2. Insert at last");
+            System.out.println("3. Delete specific");
+            System.out.println("4. Display");
             System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
-            choice = sc.nextInt();
-
+            System.out.println("Enter your choice: ");
+            int choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.print("Enter the data to insert at front: ");
-                    data = sc.nextInt();
-                    cll.insertAtFront(data);
+                    System.out.println("Enter a number to be inserted at first:");
+                    int n =sc.nextInt();
+                    l1.insertAtFront(n);
+                    l1.display();
+                    System.out.println();
                     break;
-
                 case 2:
-                    System.out.print("Enter the data to insert at end: ");
-                    data = sc.nextInt();
-                    cll.insertAtEnd(data);
+                    System.out.println("Enter a number to be inserted at last:");
+                    int m =sc.nextInt();
+                    l1.insertAtEnd(m);
+                    l1.display();
+                    System.out.println();
                     break;
-
                 case 3:
-                    System.out.print("Enter the position to delete from: ");
-                    position = sc.nextInt();
-                    cll.deleteFromPosition(position);
+                    System.out.println("Enter the position from where number is to be deleted:");
+                    int p =sc.nextInt();
+                    l1.deleteFromPosition(p);
+                    l1.display();
+                    System.out.println();
                     break;
-
                 case 4:
-                    cll.display();
-                    break;
-
+                    l1.display();
                 case 5:
-                    System.out.println("Exiting...");
-                    break;
-
+                    System.exit(0);
                 default:
-                    System.out.println("Invalid choice! Please try again.");
+                    System.out.println("Invalid choice");
             }
-        } while (choice != 5);
-        sc.close();
-    }
+        }
+    }   
 }
