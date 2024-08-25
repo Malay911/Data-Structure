@@ -34,8 +34,8 @@ public class Lab77 {
                     break;
                 case 3:
                     System.out.println("Enter a number to be deleted:");
-                    int n4 = sc.nextInt();
-                    bst.delete(n4);
+                    int n2 = sc.nextInt();
+                    bst.delete(n2);
                     bst.display();
                     System.out.println();
                     break;
