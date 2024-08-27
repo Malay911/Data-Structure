@@ -92,7 +92,7 @@ class BST {
             inorder(root.right);
         }
     }
-
+    //Search
     boolean search(int key) {
         return searchRecursive(root, key);
     }
