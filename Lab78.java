@@ -1,5 +1,5 @@
 // Write a menu driven program to implement Binary Search Tree (BST) & perform following operations 
-// Preorder Traversal, Postorder Traversal, Inorder Traversal
+//1) Preorder Traversal,2) Postorder Traversal,3) Inorder Traversal
 
 import java.util.Scanner;
 
