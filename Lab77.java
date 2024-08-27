@@ -61,7 +61,7 @@ class Node {
 
 class BST {
     Node root;
-
+    //Insert
     public void insert(int key) {
         root = insertRecursive(root, key);
     }
@@ -112,7 +112,7 @@ class BST {
 
         return searchRecursive(root.right, key);
     }
-
+    //Delete
     void delete(int key) {
         root = deleteRecursive(root, key);
     }
