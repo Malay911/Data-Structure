@@ -1,55 +1,11 @@
-// Write a menu driven program to implement Binary Search Tree (BST) & perform following operations 
-//1) Preorder Traversal,2) Postorder Traversal,3) Inorder Traversal
 
-
-import java.util.Scanner;
-
-public class Lab78 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        BST bst = new BST();
-        while (true) {
-            System.out.println("1. Insert");
-            System.out.println("2. Preorder Traversal");
-            System.out.println("3. Postorder Traversal");
-            System.out.println("4. Inorder Traversal");
-            System.out.println("5. Exit");
-            System.out.println("Enter your choice: ");
-            int choice = sc.nextInt();
-            switch (choice) {
-                case 1:
-                    System.out.println("Enter a number to be inserted:");
-                    int n = sc.nextInt();
-                    bst.insert(n);
-                    System.out.println();
-                    break;
-                case 2:
-                    System.out.println("Preorder Traversal: ");
-                    bst.Preorder(bst.root);
-                    System.out.println();
-                    break;
-                case 3:
-                    System.out.println("Postorder Traversal: ");
-                    bst.Postorder(bst.root);
-                    System.out.println();
-                    break;
-                case 4:
-                    System.out.println("Inorder Traversal: ");
-                    bst.Inorder(bst.root);
-                    System.out.println();
-                    break;
-                case 5:
-                    System.exit(0);
-                default:
-                    System.out.println("Invalid choice");
-            }
-        }
-    }
-}
+// Insert into binary tree using iterative method
+import java.util.*;
 
 class Node {
     int key;
-    Node left, right;
+    Node left;
+    Node right;
 
     public Node(int data) {
         key = data;
@@ -58,55 +14,113 @@ class Node {
     }
 }
 
-class BST {
-    Node root;
+public class Lab78 {
+    public static Node insertUsingIterative(Node root, int data) {
+        Node newNode = new Node(data);
 
-    // Insert a node into the BST
-    public void insert(int data) {
-        root = insertRec(root, data);
-    }
-
-    Node insertRec(Node root, int data) {
         if (root == null) {
-            root = new Node(data);
+            root = newNode;
             return root;
         }
 
-        if (data < root.key)
-            root.left = insertRec(root.left, data);
-        else if (data > root.key)
-            root.right = insertRec(root.right, data);
+        Node temp = root;
 
-        return root;
+        while (true) {
+            if (data == temp.key) {
+                System.out.println("Data already exists");
+                return root;
+            } else if (data < temp.key) {
+                if (temp.left == null) {
+                    temp.left = newNode;
+                    return root;
+                } else {
+                    temp = temp.left;
+                }
+            } else {
+                if (temp.right == null) {
+                    temp.right = newNode;
+                    return root;
+                } else {
+                    temp = temp.right;
+                }
+            }
+        }
     }
 
-    // Preorder Traversal
-    public void Preorder(Node node) {
-        if (node == null)
+    // Inorder
+    public static void inorder(Node root) {
+        if (root == null) {
             return;
-
-        System.out.print(node.key + " ");
-        Preorder(node.left);
-        Preorder(node.right);
+        }
+        inorder(root.left);
+        System.out.print(root.key + " ");
+        inorder(root.right);
     }
 
-    // Postorder Traversal
-    public void Postorder(Node node) {
-        if (node == null)
+    // Preorder
+    public static void preorder(Node root) {
+        if (root == null) {
             return;
-
-        Postorder(node.left);
-        Postorder(node.right);
-        System.out.print(node.key + " ");
+        }
+        System.out.print(root.key + " ");
+        preorder(root.left);
+        preorder(root.right);
     }
 
-    // Inorder Traversal
-    public void Inorder(Node node) {
-        if (node == null)
+    // Postorder
+    public static void postorder(Node root) {
+        if (root == null) {
             return;
+        }
+        preorder(root.left);
+        preorder(root.right);
+        System.out.print(root.key + " ");
+    }
 
-        Inorder(node.left);
-        System.out.print(node.key + " ");
-        Inorder(node.right);
+    public static void main(String[] args) {
+        Node root = new Node(10);
+        Scanner sc = new Scanner(System.in);
+
+        // // Insert some nodes
+        // root = insertUsingIterative(root, 5);
+        // root = insertUsingIterative(root, 15);
+        // root = insertUsingIterative(root, 3);
+        // root = insertUsingIterative(root, 7);
+        // root = insertUsingIterative(root, 12);
+        // root = insertUsingIterative(root, 18);
+
+        // // Print the data
+        // System.out.println("In-order traversal of the binary tree:");
+        // inorder(root);
+        // System.out.println("\nPre-order traversal of the binary tree:");
+        // preorder(root);
+        // System.out.println("\nPost-order traversal of the binary tree:");
+        // postorder(root);
+        while (true) {
+            System.out.println("1. Inorder");
+            System.out.println("2. Preorder");
+            System.out.println("3. Postorder");
+            System.out.println("4. Exit");
+            System.out.println("Enter your choice: ");
+            int choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("In-order traversal of the binary tree:");
+                    inorder(root);
+                    break;
+                case 2:
+                    System.out.println("In-order traversal of the binary tree:");
+                    preorder(root);
+                    break;
+                case 3:
+                    System.out.println("In-order traversal of the binary tree:");
+                    postorder(root);
+                    break;
+                case 4:
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice");
+            }
+        }
     }
 }
