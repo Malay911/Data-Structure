@@ -24,27 +24,27 @@ public class Lab78 {
         }
 
         Node temp = root;
+        Node parent = null;
 
-        while (true) {
+        while (temp != null) {
+            parent = temp;
             if (data == temp.key) {
                 System.out.println("Data already exists");
                 return root;
             } else if (data < temp.key) {
-                if (temp.left == null) {
-                    temp.left = newNode;
-                    return root;
-                } else {
-                    temp = temp.left;
-                }
+                temp = temp.left;
             } else {
-                if (temp.right == null) {
-                    temp.right = newNode;
-                    return root;
-                } else {
-                    temp = temp.right;
-                }
+                temp = temp.right;
             }
         }
+
+        if (data < parent.key) {
+            parent.left = newNode;
+        } else {
+            parent.right = newNode;
+        }
+
+        return root;
     }
 
     // Inorder
@@ -72,51 +72,45 @@ public class Lab78 {
         if (root == null) {
             return;
         }
-        preorder(root.left);
-        preorder(root.right);
+        postorder(root.left);
+        postorder(root.right);
         System.out.print(root.key + " ");
     }
 
     public static void main(String[] args) {
-        Node root = new Node(10);
+        Node root = null;
         Scanner sc = new Scanner(System.in);
 
-        // // Insert some nodes
-        // root = insertUsingIterative(root, 5);
-        // root = insertUsingIterative(root, 15);
-        // root = insertUsingIterative(root, 3);
-        // root = insertUsingIterative(root, 7);
-        // root = insertUsingIterative(root, 12);
-        // root = insertUsingIterative(root, 18);
-
-        // // Print the data
-        // System.out.println("In-order traversal of the binary tree:");
-        // inorder(root);
-        // System.out.println("\nPre-order traversal of the binary tree:");
-        // preorder(root);
-        // System.out.println("\nPost-order traversal of the binary tree:");
-        // postorder(root);
         while (true) {
-            System.out.println("1. Inorder");
-            System.out.println("2. Preorder");
-            System.out.println("3. Postorder");
-            System.out.println("4. Exit");
+            System.out.println("1. Insert node");
+            System.out.println("2. Inorder");
+            System.out.println("3. Preorder");
+            System.out.println("4. Postorder");
+            System.out.println("5. Exit");
             System.out.println("Enter your choice: ");
             int choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    System.out.println("In-order traversal of the binary tree:");
-                    inorder(root);
+                    System.out.println("Enter the data to insert: ");
+                    int data = sc.nextInt();
+                    root = insertUsingIterative(root, data);
                     break;
                 case 2:
-                    System.out.println("In-order traversal of the binary tree:");
-                    preorder(root);
+                    System.out.println("Inorder traversal of the binary tree:");
+                    inorder(root);
+                    System.out.println();
                     break;
                 case 3:
-                    System.out.println("In-order traversal of the binary tree:");
-                    postorder(root);
+                    System.out.println("Preorder traversal of the binary tree:");
+                    preorder(root);
+                    System.out.println();
                     break;
                 case 4:
+                    System.out.println("Postorder traversal of the binary tree:");
+                    postorder(root);
+                    System.out.println();
+                    break;
+                case 5:
                     System.exit(0);
                 default:
                     System.out.println("Invalid choice");
