@@ -17,6 +17,22 @@ public class Lab99 {
             }
         }
     }
+    // public static void shellSort(int[] a) {
+    //     int n = a.length;
+    //     for (int gap = n / 2; gap >= 1; gap = gap / 2) {
+    //         for (int j = gap; j < n; j++) {
+    //             for (int i = j - gap; i >= 0; i = i - gap) {
+    //                 if (a[i + gap] > a[i]) {
+    //                     break;
+    //                 } else {
+    //                     int temp = a[i];
+    //                     a[i] = a[i + gap];
+    //                     a[i + gap] = temp;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
