@@ -26,7 +26,6 @@ public class Lab83 {
     }
 
     public static void main(String args[]) {
-        // Create a sample BST
         Node root = new Node(50);
         root.left = new Node(30);
         root.right = new Node(70);
@@ -37,6 +36,7 @@ public class Lab83 {
 
         int min = findMin(root);
         int max = findMax(root);
+        
         System.out.println("Smallest element: " + min);
         System.out.println("Largest element: " + max);
     }
