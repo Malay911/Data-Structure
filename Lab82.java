@@ -31,7 +31,6 @@ public class Lab82 {
 
         node.left = constructTree(post, pre, postIndex - (preEnd - i + 1), preStart + 1, i - 1);
         node.right = constructTree(post, pre, postIndex - 1, i, preEnd);
-
         return node;
     }
 
@@ -39,7 +38,6 @@ public class Lab82 {
         if (node == null) {
             return;
         }
-
         printInorder(node.left);
         System.out.print(node.data + " ");
         printInorder(node.right);
