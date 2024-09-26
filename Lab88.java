@@ -1,4 +1,8 @@
-//In an array of 20 elements, arrange 15 different values, which are generated randomly between 1,00,000 to 9,99,999. Use hash function to generate key and linear probing to avoid collision. H(x) = (x mod 18) + 2. Write a program to input and display the final values of array.
+//In an array of 20 elements, arrange 15 different values, which are generated randomly between 1,00,000 to 9,99,999. 
+//Use hash function to generate key and linear probing to avoid collision. 
+//H(x) = (x mod 18) + 2. 
+//Write a program to input and display the final values of array.
+
 import java.util.*;
 
 public class Lab88 {
