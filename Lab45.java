@@ -18,9 +18,7 @@ class InfixToPostfix {
     }
 
     public String infixToPostfix(String exp) {
-
         StringBuilder result = new StringBuilder();
-
         Stack<Character> stack = new Stack<>();
 
         for (int i = 0; i < exp.length(); ++i) {
