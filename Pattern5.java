@@ -3,6 +3,7 @@
 //3 2 1 2 3
 //3 2 2 2 3
 //3 3 3 3 3
+
 public class Pattern5 {
     public static void main(String[] args) {
         int n = 5;
