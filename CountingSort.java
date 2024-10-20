@@ -12,6 +12,7 @@ public class CountingSort {
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextInt();
         }
+        
         CountingSort(arr);
         System.out.println("Sorted array:");
         for (int i = 0; i < n; i++) {
